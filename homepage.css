@@ -1,0 +1,132 @@
+/* ========================================
+   GENERAL PAGE STYLING
+   ======================================== */
+ 
+* {
+    box-sizing: border-box;
+    }
+  
+  html {
+  scroll-behavior: smooth;
+  }
+  
+  body {
+  margin: 0;
+  font-family: Georgia, "Times New", sans-serif;
+  line-height: 1.6;
+  color: #263238;
+  background-color: #f4f7f9;
+  }
+  
+/* ========================================
+   HEADER
+   ======================================== */
+  .site-header {
+  background-color: #073b21 ;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem 0;
+  }
+  
+  .header-content h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  }
+  
+  .header-content p {
+  margin: 0.5rem 0 1.5rem;
+  font-size: 1.1rem;
+  }
+  
+/* ========================================
+   NAVIGATION
+   ======================================== */
+  .navigation {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem;
+  }
+  
+  .navigation a {
+  display: block;
+  padding: 0.6rem 1rem;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  }
+  
+  .navigation a:hover,
+  .navigation a:focus {
+  background-color: #2f668f;
+  }
+
+/* ========================================
+   FOOTER
+   ======================================== */
+
+   .site-footer {
+    margin-top: 3rem;
+    padding: 2rem;
+    background-color: #073b21;
+    color: white;
+    text-align: center;
+    }
+    
+    .site-footer p {
+    margin: 0.25rem;
+    }
+    
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+    @media (max-width: 768px) {
+    .header-content h1 {
+    font-size: 2rem;
+    }
+    
+    .profile-section {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+    
+    .coursework-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .navigation a {
+        text-align: center;
+    }
+    
+    }
+    
+    @media (max-width: 480px) {
+    main {
+    width: 94%;
+    }
+    
+    .profile-section,
+    .content-section {
+        padding: 1.25rem;
+    }
+    
+    .profile-image img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .header-content h1 {
+        font-size: 1.7rem;
+    }
+    
+    }
+    

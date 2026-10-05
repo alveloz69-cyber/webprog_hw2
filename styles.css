@@ -1,0 +1,580 @@
+/*
+    Name: Alexa Veloz
+    Section: 002
+    Assignment: Homework 2 - Movie Review
+    File: styles.css
+
+    Description:
+    Styles the movie review page using CSS Grid and Flexbox.
+
+    Grid is used for the major page structure.
+    Flexbox is used for the review components.
+    A responsive breakpoint changes the layout for smaller screens.
+*/
+
+
+/* ========================================
+   GENERAL PAGE STYLES
+   ======================================== */
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("images/background.png");
+    background-repeat: repeat;
+
+    font-family: Verdana, Tahoma, sans-serif;
+    font-size: 8pt;
+    color: #000000;
+}
+
+
+/* ========================================
+   BANNER
+   ======================================== */
+
+#banner {
+    height: 50px;
+
+    background-image: url("images/bannerbackground.png");
+    background-repeat: repeat-x;
+
+    text-align: center;
+}
+
+#banner img {
+    height: 50px;
+    width: auto;
+}
+
+
+/* ========================================
+   MOVIE HEADING
+   ======================================== */
+
+h1 {
+    margin: 10px 0;
+
+    text-align: center;
+
+    font-family: Tahoma, Verdana, sans-serif;
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+
+/* ========================================
+   MAIN CONTENT FRAME
+   ======================================== */
+
+#content {
+    width: 800px;
+    margin: 0 auto;
+
+    border: 4px solid #808080;
+    box-sizing: border-box;
+
+    /*
+        CSS Grid controls the major page structure.
+
+        The review area is flexible.
+        The General Overview is exactly 250px wide.
+    */
+    display: grid;
+
+    grid-template-columns: minmax(0, 1fr) 250px;
+
+    grid-template-areas:
+        "reviews overview"
+        "counter counter";
+
+    /*
+        IMPORTANT:
+        Do not use a white background here.
+        This allows background.png from the body
+        to show through the review area.
+    */
+    background-color: transparent;
+}
+
+
+/* ========================================
+   REVIEWS SECTION
+   ======================================== */
+
+#reviews {
+    grid-area: reviews;
+
+    min-width: 0;
+
+    /* Allow background.png to show through */
+    background-color: transparent;
+}
+
+
+/* ========================================
+   ROTTEN RATING
+   ======================================== */
+
+#rating {
+    min-height: 83px;
+
+    background-image: url("images/rottenbackground.png");
+    background-repeat: repeat-x;
+
+    color: #ffffff;
+}
+
+#rating-background {
+    display: flex;
+    align-items: center;
+
+    min-height: 83px;
+}
+
+#rating-background img {
+    width: 83px;
+    height: 83px;
+
+    flex-shrink: 0;
+}
+
+#rating-number {
+    margin-left: 8px;
+
+    color: #ff0000;
+
+    font-size: 48pt;
+    font-weight: bold;
+    line-height: 1;
+}
+
+#review-count {
+    margin-left: 8px;
+    margin-top: 35px;
+    color: #ffffff;
+    font-size: 8pt;
+}
+
+
+/* ========================================
+   REVIEW COLUMNS
+   ======================================== */
+
+#review-columns {
+    display: flex;
+
+    gap: 2%;
+
+    padding: 10px 2%;
+
+    box-sizing: border-box;
+
+    /*
+        Allows the background.png pattern
+        to remain visible between reviews.
+    */
+    background-color: transparent;
+}
+
+.review-column {
+    width: 49%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   INDIVIDUAL REVIEW
+   ======================================== */
+
+/*
+    .review-item contains BOTH:
+    1. The yellow review box
+    2. The reviewer information below it
+*/
+.review-item {
+    width: 100%;
+}
+
+
+/*
+    Yellow review box.
+
+    ONLY the review itself receives the
+    yellow background and gray border.
+*/
+.review {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 8px;
+
+    background-color: #E1D697;
+    border: 2px solid #808080;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 5px;
+}
+
+
+/* Fresh or rotten icon inside review box */
+.review > img {
+    flex-shrink: 0;
+
+    width: auto;
+    height: auto;
+}
+
+
+/* Review text */
+.review p {
+    margin: 0;
+
+    font-size: 8pt;
+    font-weight: bold;
+
+    line-height: 1.2;
+}
+
+
+/* ========================================
+   REVIEWER INFORMATION
+   ======================================== */
+
+/*
+    IMPORTANT:
+
+    .reviewer must be a SIBLING of .review,
+    not a child of .review.
+
+    This places the critic.gif and reviewer
+    name underneath the yellow review box.
+*/
+.reviewer {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 5px;
+
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* Critic icon */
+.reviewer img {
+    flex-shrink: 0;
+
+    width: auto;
+    height: auto;
+}
+
+
+/* Reviewer name and publication */
+.reviewer p {
+    margin: 0;
+
+    font-size: 8pt;
+    line-height: 1.2;
+}
+
+
+/* Publication name */
+.reviewer em {
+    font-style: italic;
+}
+
+
+/* ========================================
+   GENERAL OVERVIEW
+   ======================================== */
+
+#overview {
+    grid-area: overview;
+
+    width: 250px;
+
+    box-sizing: border-box;
+
+    background-color: #A2B964;
+
+    font-family: Arial, sans-serif;
+    font-size: 8pt;
+    line-height: 1.4;
+
+    padding: 0;
+    margin: 0;
+}
+
+
+/*
+    The generaloverview.png image fills
+    the complete 250px sidebar width.
+*/
+#overview > img {
+    display: block;
+
+    width: 250px;
+    max-width: 100%;
+    height: auto;
+
+    margin: 0;
+    padding: 0;
+}
+
+
+/*
+    Text below the image gets the required
+    10px space from the sidebar edges.
+*/
+.overview-info {
+    padding: 10px;
+
+    box-sizing: border-box;
+}
+
+
+/* ========================================
+   DEFINITION LIST
+   ======================================== */
+
+#overview dl {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* Definition terms */
+#overview dt {
+    margin-top: 10px;
+
+    font-weight: bold;
+}
+
+
+/* First definition term */
+#overview dt:first-child {
+    margin-top: 0;
+}
+
+
+/* Definition descriptions */
+#overview dd {
+    margin-left: 45px;
+}
+
+
+/* ========================================
+   OFFICIAL MOVIE SITE
+   ======================================== */
+
+#overview h3 {
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    font-size: 8pt;
+}
+
+#overview p {
+    margin-top: 0;
+}
+
+#overview a {
+    color: #0000EE;
+}
+
+
+/* ========================================
+   REVIEW COUNTER
+   ======================================== */
+
+#review-counter {
+    grid-area: counter;
+
+    box-sizing: border-box;
+
+    padding: 5px;
+
+    background-color: #A2B964;
+
+    text-align: center;
+
+    font-size: 8pt;
+}
+
+
+/* ========================================
+   VALIDATOR LINKS
+   ======================================== */
+
+#validators {
+    position: fixed;
+
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    gap: 3px;
+
+    padding: 5px;
+
+    background-color: #FFFFFF;
+}
+
+#validators a {
+    display: block;
+}
+
+#validators img {
+    border: 0;
+}
+
+
+/* ========================================
+   KEYBOARD FOCUS
+   ======================================== */
+
+a:focus {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+
+
+/* ========================================
+   RESPONSIVE LAYOUT: 700px
+   ======================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    #content {
+        width: 96%;
+
+        grid-template-columns: 1fr;
+
+        grid-template-areas:
+            "reviews"
+            "overview"
+            "counter";
+    }
+
+    #review-columns {
+        flex-wrap: wrap;
+    }
+
+    .review-column {
+        width: 100%;
+    }
+
+    #overview {
+        width: 100%;
+    }
+
+    #overview > img {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 20pt;
+    }
+}
+
+
+/* ========================================
+   RESPONSIVE LAYOUT: 480px
+   ======================================== */
+
+@media (max-width: 480px) {
+
+    #content {
+        width: 100%;
+
+        border-left: 0;
+        border-right: 0;
+    }
+
+    #rating-background {
+        min-height: 70px;
+    }
+
+    #rating-background img {
+        width: 70px;
+        height: 70px;
+    }
+
+    #rating-number {
+        font-size: 36pt;
+    }
+
+    #review-columns {
+        padding: 3%;
+    }
+
+    .review {
+        padding: 6px;
+    }
+
+    h1 {
+        font-size: 18pt;
+    }
+
+    #validators {
+        display: none;
+    }
+}
+
+
+/* ========================================
+   PRINT LAYOUT
+   ======================================== */
+
+@media print {
+
+    body {
+        background: none;
+    }
+
+    #banner {
+        background: none;
+    }
+
+    #validators {
+        display: none;
+    }
+
+    #content {
+        width: 100%;
+
+        border: 1px solid #000000;
+    }
+
+    #reviews,
+    #overview {
+        break-inside: avoid;
+    }
+}
